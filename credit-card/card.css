@@ -1,0 +1,175 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: #f0f0f0;
+}
+
+#paymentForm {
+  max-width: 400px;
+  width: 100%;
+}
+
+.card-grid {
+  display: grid;
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.card-front, .card-back {
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #e0e0e0; 
+  color: #333; 
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.card-front {
+  position: relative;
+  padding: 1rem;
+  background-color: #e0e0e0;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 2; 
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.card-logo {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 55px;
+  z-index: 3;
+}
+
+.card-front input,
+#cvv {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.expiration {
+  display: flex;
+  gap: 0.5rem; 
+}
+
+.card-back {
+  z-index: 1;
+  transform: translate(100px, 80px); 
+}
+
+.magnetic-strip {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: #000;
+  border-radius: 4px;
+}
+
+.corner-label {
+  position: absolute;
+  bottom: 35px;
+  right: 60px;
+  font-size: 0.85rem;
+  z-index: 3;
+}
+
+#cvv {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  width: 60px;
+  padding: 4px 6px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  border: 1px solid #aaa;
+  z-index: 4; 
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+.card-holder-group,
+.expiration-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-holder-group input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.expiration-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.expiration-inputs input {
+  width: 40px;
+  padding: 0.4rem;
+  text-align: center;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end; 
+  margin-top: 1rem;
+}
+
+.submit-button {
+  position: relative;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: #fff;
+  border: 2px solid #333;
+  border-radius: 6px;
+  cursor: pointer;
+  top: 100px;
+  left: 325px;
+  width: 150px; 
+}
+
+.submit-button:hover {
+  background: #f0f0f0;
+}
+
+.favicon {
+  width: 24px;
+  height: 24px;
+}
