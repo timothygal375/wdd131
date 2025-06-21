@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="recipes.css">
+    <script src="recipes.js" defer></script>
+    <meta property="og:title" content="Recipe Book">
+    <meta property="og:type" content="Website" />
+    <meta property="og:description" content="Discover and share delicious recipes with our interactive recipe book.">
+    <meta property="og:image" content="images/recipe-book.png">
+    <meta property="og:url" content="https://timothygal375.github.io/wdd131/recipes/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="images/recipe-book.png" alt="Recipe Book Logo" class="logo">
+            <h1>Recipe Book</h1>
+        </div>
+    </header>
+    <main>
+        <form action="/search" method="get">
+            <label for="search-query"></label>
+            <input type="text" id="search-query" name="q" placeholder="Find a recipe">
+            <button type="submit">🔍</button>
+        </form>
+        <hr class="section-divider">
+        <section id="recipe-display"></section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="credit">
+                <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">Recipe icons created by Freepik - Flaticon</a>
+            </div>
+            <div class="social">
+                <a href="#"><img src="images/instagram_icon.svg" alt="Instagram icon"></a>
+                <a href="#"><img src="images/youtube_icon.svg" alt="YouTube icon"></a>
+                <a href="#"><img src="images/pinterest_icon.svg" alt="Pinterest icon"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

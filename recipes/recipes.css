@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+ :root {
+ --primary-color: #1B98E0;
+ --secondary-color: #59c3c3;
+ --text-dark: #333;
+ --text-light: #ebebeb;
+ --primary-font: Arial, Helvetica,sans-serif;
+ --secondary-font: "Amatic SC";
+ }
+
+ body {
+  font-family: var(--primary-font);
+  background-color: #fefefe;
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+header {
+  padding: 1.5rem 1rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+header h1 {
+  font-family: var(--secondary-font);
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+form {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  justify-content: center;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  color: white;
+  border: 1px solid black;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 700px;
+}
+
+.simple-recipe-card {
+  background: white;
+  border: 1.5px solid black;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  font-family: var(--primary-font);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-direction: column; 
+}
+
+.recipe-image {
+  flex-shrink: 0;
+  width: 280px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.recipe-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.simple-recipe-card h2 {
+  font-family: var(--secondary-font);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.simple-recipe-card p {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.tag-container {
+  margin-bottom: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid black; 
+  padding: 0.25rem 0.6rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+}
+
+.rating {
+  font-size: 1.2rem;
+  color: gold;
+}
+
+
+footer {
+  margin-top: 4rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.footer-container {
+  display: block;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+footer .social a img {
+  width: 24px;
+  margin: 0 8px;
+  transition: transform 0.2s;
+}
+
+footer .social a img:hover {
+  transform: scale(1.1);
+}
+
+.description {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+    .simple-recipe-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    border: 1.5px solid black;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .recipe-image {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+
+  .recipe-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1;
+    gap: 0.5rem;
+  }
+
+  .tag-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    border: 1px solid black;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+    background: white;
+  }
+
+  .simple-recipe-card h2 {
+    font-family: var(--secondary-font);
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin: 0;
+  }
+
+  .rating {
+    font-size: 1.2rem;
+    color: gold;
+  }
+
+  .description {
+    display: block; 
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin: 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 2rem auto 0;
+    padding: 1rem 2rem;
+    text-align: left;
+  }
+
+  .footer-container .credit {
+    flex: 1;
+  }
+
+  .footer-container .social {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+
+  .footer-container .social img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
