@@ -314,11 +314,54 @@ function generateStars(rating) {
   return fullStar.repeat(fullCount) + emptyStar.repeat(emptyCount);
 }
 
-const sweetPotatoWaffles = recipes.find(r => r.name === 'Sweet Potato Waffles');
-
-if (sweetPotatoWaffles) {
-  container.appendChild(createSimpleCard(sweetPotatoWaffles));
+function random(n) {
+	return Math.floor(Math.random()*n)
 }
+
+function getRandomListEntry(list) {
+	const listLength = list.length 
+	const randomNumber = random(listLength)
+	return list[randomNumber]
+}
+
+function init() {
+	const recipeDisplay = getRandomListEntry(recipes)
+	container.appendChild(createSimpleCard(recipeDisplay))
+}
+
+function filterRecipes(query) {
+  return recipes
+    .filter(recipe => {
+      const name = recipe.name.toLowerCase();
+      const description = recipe.description.toLowerCase();
+      const tags = recipe.tags.map(tag => tag.toLowerCase()).join(" ");
+      const ingredients = recipe.recipeIngredient.join(" ").toLowerCase();
+
+      return (
+        name.includes(query) ||
+        description.includes(query) ||
+        tags.includes(query) ||
+        ingredients.includes(query)
+      );
+    })
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+document.getElementById("search-form").addEventListener("submit", function (event) {
+  event.preventDefault(); 
+  const query = document.getElementById("search-query").value.toLowerCase().trim();
+  const filtered = filterRecipes(query);
+  renderRecipes(filtered);
+});
+
+function renderRecipes(recipeList) {
+  container.innerHTML = "";
+  recipeList.forEach(recipe => {
+    container.appendChild(createSimpleCard(recipe));
+  });
+}
+
+init();
 
 
 
