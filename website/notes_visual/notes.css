@@ -1,0 +1,281 @@
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: #fdfaf6;
+  color: #222;
+  line-height: 1.6;
+  padding-bottom: 100px;
+}
+
+:root {
+  --primary: #4a90e2;
+  --accent: #ffb347;
+  --bg-light: #ffffff;
+  --text-dark: #222;
+  --note-correct: #4caf50;
+  --note-wrong: #d32f2f;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+nav a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-weight: bold;
+}
+
+select#clef-select {
+  background-color: var(--bg-light);
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-dark);
+  appearance: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: border-color 0.2s;
+}
+
+select#clef-select:hover,
+select#clef-select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toggle-label {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.toggle-label .slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+#sound-toggle {
+  display: none;
+}
+
+#sound-toggle:checked + .toggle-label {
+  background-color: var(--accent);
+}
+
+#sound-toggle:checked + .toggle-label .slider {
+  transform: translateX(24px);
+}
+
+.toggle-text {
+  margin-right: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+
+.lesson-preview, .lesson-full {
+  background: var(--bg-light);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+  border-left: 5px solid var(--primary);
+}
+
+.lesson-preview h3,
+.lesson-full h2 {
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+.note-options button,
+#play-note {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  margin: 0.3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.note-options button:hover,
+#play-note:hover {
+  background-color: #ffa726;
+  transform: translateY(-2px);
+}
+
+#feedback {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--note-wrong);
+  transition: color 0.3s;
+}
+
+.correct {
+  color: var(--note-correct);
+}
+
+.wrong {
+  color: var(--note-wrong);
+}
+
+.lesson-full {
+    background: #fff;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .note-display img {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .note-options button {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  
+  #feedback {
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  .keyboard {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+.keys {
+  position: relative;
+  display: flex;
+  height: 200px;
+  margin: 2rem auto;
+  width: max-content;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #333;
+  user-select: none;
+  transition: background 0.1s;
+}
+
+.white {
+  width: 60px;
+  height: 200px;
+  background: white;
+  z-index: 1;
+}
+
+.white:hover {
+  background: #f0f0f0;
+}
+
+.black {
+  width: 35px;
+  height: 120px;
+  background: black;
+  position: absolute;
+  margin-left: -20px;
+  z-index: 2;
+}
+
+.black:hover {
+  background: #333;
+}
+
+.key.black[data-note="C#4"] { left: 60px; }
+.key.black[data-note="D#4"] { left: 120px; }
+.key.black[data-note="F#4"] { left: 240px; }
+.key.black[data-note="G#4"] { left: 300px; }
+.key.black[data-note="A#4"] { left: 360px; }
+  
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--primary);
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}

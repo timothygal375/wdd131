@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="notes.css">
+    <script src="https://unpkg.com/tone@next"></script>
+    <script src="notes.js" defer></script>
+</head>
+<body>
+    <section id="lesson1" class="lesson-full">
+        <h2>Recognizing Notes</h2>
+        <p>This quiz will help you identify notes on a staff and match them to keys on the piano.</p>
+
+        <div class="controls">
+          <label for="clef-select">Select Clef:</label>
+          <select id="clef-select">
+            <option value="random">Random</option>
+            <option value="treble">Treble</option>
+            <option value="bass">Bass</option>
+            <option value="alto">Alto</option>
+          </select>
+
+          <div class="toggle-wrapper">
+            <input type="checkbox" id="sound-toggle" checked />
+            <label for="sound-toggle" class="toggle-label">
+              <span class="toggle-text">🔊 Sound</span>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="note-display">
+          <img src="assets/treble-staff.png" alt="Note On Staff" />
+          <p>Which note is this?</p>
+          <div class="note-options">
+            <button>A</button>
+            <button>B</button>
+            <button>C</button>
+            <button>D</button>
+            <button>E</button>
+            <button>F</button>
+            <button>G</button>
+          </div>
+          <p id="feedback"></p>
+        </div>
+      
+        <div class="keyboard">
+          <h3>🎹 Visual Keyboard</h3>
+            <div class="keys">
+              <div class="key white" data-note="C4">C</div>
+              <div class="key black" data-note="C#4"></div>
+              <div class="key white" data-note="D4">D</div>
+              <div class="key black" data-note="D#4"></div>
+              <div class="key white" data-note="E4">E</div>
+              <div class="key white" data-note="F4">F</div>
+              <div class="key black" data-note="F#4"></div>
+              <div class="key white" data-note="G4">G</div>
+              <div class="key black" data-note="G#4"></div>
+              <div class="key white" data-note="A4">A</div>
+              <div class="key black" data-note="A#4"></div>
+              <div class="key white" data-note="B4">B</div>
+          </div>
+        </div>
+      </section>     
+      <footer>
+        <p>&copy; 2025 Learn Music Theory. Built with 🎵 and 💻</p>
+      </footer>
+</body>
+</html>
+
+
