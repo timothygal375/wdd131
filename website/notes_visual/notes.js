@@ -29,6 +29,7 @@ function playNoteSound(noteOctave) {
   }
 }
 
+// Load a new random note
 function loadRandomNote() {
   const userClefChoice = clefSelect.value;
 
@@ -42,17 +43,13 @@ function loadRandomNote() {
   currentNote = noteOctave.slice(0, -1);
   currentOctave = noteOctave.slice(-1);
 
-  const noteOctaveFormatted = noteOctave.replace(/^([a-g#b]+)(\d)$/i, (_, note, octave) =>
-    note.toLowerCase() + octave
-  );
-
-  noteDisplay.src = `notes/note_${currentClef}_${noteOctaveFormatted}.png`;
+  noteDisplay.src = `notes/note_${currentClef}_${noteOctave}.png`;
   feedback.textContent = "";
-  playNoteSound(noteOctaveFormatted);
-
-  console.log(`Loading: notes/note_${currentClef}_${noteOctaveFormatted}.png`);
+  playNoteSound(currentNote + currentOctave);
 }
 
+
+// Check user's answer
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     const guess = button.textContent;
@@ -60,7 +57,7 @@ buttons.forEach(button => {
       feedback.textContent = "✅ Correct!";
       feedback.style.color = "green";
       feedback.className = "correct";
-      setTimeout(loadRandomNote, 1000);
+      setTimeout(loadRandomNote, 1000); // Load next note after 1 sec
     } else {
       feedback.textContent = "❌ Try again.";
       feedback.style.color = "red";
@@ -69,6 +66,7 @@ buttons.forEach(button => {
   });
 });
 
+// Initialize first note
 loadRandomNote();
 
 document.querySelectorAll('.key').forEach(key => {

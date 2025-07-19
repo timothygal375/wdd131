@@ -1,73 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes</title>
-    <link rel="stylesheet" href="notes.css">
-    <script src="https://unpkg.com/tone@next"></script>
-    <script src="notes.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn Music Theory</title>
+  <link rel="stylesheet" href="notes.css" />
+  <script src="https://unpkg.com/tone@next"></script>
+  <script src="notes.js"defer></script>
 </head>
 <body>
+  <header>
+    <h1>🎵 Learn Music Theory</h1>
+    <nav>
+      <ul>
+        <li><a href="intervals/index.html">Intervals</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
     <section id="lesson1" class="lesson-full">
-        <h2>Recognizing Notes</h2>
-        <p>This quiz will help you identify notes on a staff and match them to keys on the piano.</p>
+  <h2>🎼 Lesson 1: Recognizing Notes</h2>
+  <p>This lesson will help you identify notes on the treble clef and match them to keys on the piano.</p>
 
-        <div class="controls">
-          <label for="clef-select">Select Clef:</label>
-          <select id="clef-select">
-            <option value="random">Random</option>
-            <option value="treble">Treble</option>
-            <option value="bass">Bass</option>
-            <option value="alto">Alto</option>
-          </select>
+  <div class="controls">
+  <label for="clef-select">Select Clef:</label>
+  <select id="clef-select">
+    <option value="random">Random</option>
+    <option value="treble">Treble</option>
+    <option value="bass">Bass</option>
+    <option value="alto">Alto</option>
+  </select>
 
-          <div class="toggle-wrapper">
-            <input type="checkbox" id="sound-toggle" checked />
-            <label for="sound-toggle" class="toggle-label">
-              <span class="toggle-text">🔊 Sound</span>
-              <span class="slider"></span>
-            </label>
-          </div>
-        </div>
-        
-        <div class="note-display">
-          <img src="assets/treble-staff.png" alt="Note On Staff" />
-          <p>Which note is this?</p>
-          <div class="note-options">
-            <button>A</button>
-            <button>B</button>
-            <button>C</button>
-            <button>D</button>
-            <button>E</button>
-            <button>F</button>
-            <button>G</button>
-          </div>
-          <p id="feedback"></p>
-        </div>
-      
-        <div class="keyboard">
-          <h3>🎹 Visual Keyboard</h3>
-            <div class="keys">
-              <div class="key white" data-note="C4">C</div>
-              <div class="key black" data-note="C#4"></div>
-              <div class="key white" data-note="D4">D</div>
-              <div class="key black" data-note="D#4"></div>
-              <div class="key white" data-note="E4">E</div>
-              <div class="key white" data-note="F4">F</div>
-              <div class="key black" data-note="F#4"></div>
-              <div class="key white" data-note="G4">G</div>
-              <div class="key black" data-note="G#4"></div>
-              <div class="key white" data-note="A4">A</div>
-              <div class="key black" data-note="A#4"></div>
-              <div class="key white" data-note="B4">B</div>
-          </div>
-        </div>
-      </section>     
-      <footer>
-        <p>&copy; 2025 Learn Music Theory. Built with 🎵 and 💻</p>
-      </footer>
+  <label for="sound-toggle">
+    <input type="checkbox" id="sound-toggle" checked />
+    🔊 Sound On
+  </label>
+</div>
+
+
+  <div class="note-display">
+    <img src="assets/treble-staff.png" alt="Treble Clef Notes" />
+    <p>Which note is this?</p>
+    <div class="note-options">
+      <button>A</button>
+      <button>B</button>
+      <button>C</button>
+      <button>D</button>
+      <button>E</button>
+      <button>F</button>
+      <button>G</button>
+    </div>
+    <p id="feedback"></p>
+  </div>
+
+  <div class="keyboard">
+  <h3>🎹 Piano Keyboard</h3>
+  <div class="keys">
+    <!-- White keys -->
+    <div class="key white" data-note="C">C</div>
+    <div class="key white" data-note="D">D</div>
+    <div class="key white" data-note="E">E</div>
+    <div class="key white" data-note="F">F</div>
+    <div class="key white" data-note="G">G</div>
+    <div class="key white" data-note="A">A</div>
+    <div class="key white" data-note="B">B</div>
+
+    <!-- Black keys (positioned over whites) -->
+    <div class="key black" data-note="C#"></div>
+    <div class="key black" data-note="D#"></div>
+    <div class="key black" data-note="F#"></div>
+    <div class="key black" data-note="G#"></div>
+    <div class="key black" data-note="A#"></div>
+  </div>
+</div>
+
+
+</section>
+
+  </main>
+
+ <footer>
+  <p>&copy; 2025 Learn Music Theory. Built with 🎵 and 💻</p>
+</footer>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
-
-

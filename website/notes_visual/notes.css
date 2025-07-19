@@ -13,6 +13,7 @@ body {
   padding-bottom: 100px;
 }
 
+/* Color Theme */
 :root {
   --primary: #4a90e2;
   --accent: #ffb347;
@@ -22,54 +23,193 @@ body {
   --note-wrong: #d32f2f;
 }
 
-header {
-  background: var(--primary);
-  color: white;
-  padding: 1.5rem 1rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-nav a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
 main {
   padding: 2rem;
   max-width: 900px;
   margin: auto;
 }
 
-.controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
+.lesson-preview, .lesson-full {
+  background: var(--bg-light);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+  border-left: 5px solid var(--primary);
 }
 
-.controls label {
+.lesson-preview h3,
+.lesson-full h2 {
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: #222;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
   font-weight: bold;
 }
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+}
+
+.lesson-preview {
+  padding: 1.5rem;
+  background: white;
+  margin: 1rem auto;
+  max-width: 800px;
+  border-left: 5px solid #4caf50;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--primary);
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.lesson-full {
+  background: #fff;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.note-display img {
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.note-options button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.note-options button,
+#play-note {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.25rem;
+  margin: 0.3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.note-options button:hover,
+#play-note:hover {
+  background-color: #ffa726;
+  transform: translateY(-2px);
+}
+
+#feedback {
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--note-wrong);
+  transition: color 0.3s;
+}
+
+.correct {
+  color: var(--note-correct);
+}
+
+.wrong {
+  color: var(--note-wrong);
+}
+
+
+.keys {
+  position: relative;
+  display: flex;
+  height: 200px;
+  width: 420px;
+  margin: 2rem auto;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.1s;
+  position: relative;
+  z-index: 1;
+}
+
+/* White keys */
+.key.white {
+  width: 60px;
+  height: 200px;
+  background: white;
+  border: 1px solid #333;
+  z-index: 1;
+}
+
+.key.white:hover {
+  background: #eee;
+}
+
+/* Black keys */
+.key.black {
+  width: 40px;
+  height: 130px;
+  background: black;
+  border: 1px solid #111;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.key.black:hover {
+  background: #444;
+}
+
+/* Precise black key positions */
+.key.black[data-note="C#"] { left: 40px; }
+.key.black[data-note="D#"] { left: 105px; }
+.key.black[data-note="F#"] { left: 220px; }
+.key.black[data-note="G#"] { left: 280px; }
+.key.black[data-note="A#"] { left: 340px; }
 
 select#clef-select {
   background-color: var(--bg-light);
@@ -119,8 +259,11 @@ select#clef-select:focus {
   transition: transform 0.2s;
 }
 
+/* Hide the checkbox itself */
 #sound-toggle {
-  display: none;
+  opacity: 0;  /* Makes the checkbox invisible but still clickable */
+  position: absolute;  /* Position it outside of the visible layout */
+  pointer-events: all; /* Ensures it can still be interacted with */
 }
 
 #sound-toggle:checked + .toggle-label {
@@ -135,147 +278,4 @@ select#clef-select:focus {
   margin-right: 0.5rem;
   font-weight: bold;
   font-size: 1rem;
-}
-
-
-.lesson-preview, .lesson-full {
-  background: var(--bg-light);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.05);
-  border-left: 5px solid var(--primary);
-}
-
-.lesson-preview h3,
-.lesson-full h2 {
-  margin-bottom: 0.75rem;
-  color: var(--primary);
-}
-
-.note-options button,
-#play-note {
-  background-color: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 0.5rem 1.25rem;
-  margin: 0.3rem;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: background 0.2s, transform 0.1s;
-}
-
-.note-options button:hover,
-#play-note:hover {
-  background-color: #ffa726;
-  transform: translateY(-2px);
-}
-
-#feedback {
-  margin-top: 1rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: var(--note-wrong);
-  transition: color 0.3s;
-}
-
-.correct {
-  color: var(--note-correct);
-}
-
-.wrong {
-  color: var(--note-wrong);
-}
-
-.lesson-full {
-    background: #fff;
-    padding: 2rem;
-    max-width: 800px;
-    margin: 2rem auto;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  
-  .note-display img {
-    max-width: 100%;
-    margin-bottom: 1rem;
-  }
-  
-  .note-options button {
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-  }
-  
-  #feedback {
-    margin-top: 1rem;
-    font-weight: bold;
-  }
-  
-  .keyboard {
-    margin-top: 2rem;
-    text-align: center;
-  }
-  
-.keys {
-  position: relative;
-  display: flex;
-  height: 200px;
-  margin: 2rem auto;
-  width: max-content;
-}
-
-.key {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  font-size: 0.8rem;
-  font-weight: bold;
-  cursor: pointer;
-  border: 1px solid #333;
-  user-select: none;
-  transition: background 0.1s;
-}
-
-.white {
-  width: 60px;
-  height: 200px;
-  background: white;
-  z-index: 1;
-}
-
-.white:hover {
-  background: #f0f0f0;
-}
-
-.black {
-  width: 35px;
-  height: 120px;
-  background: black;
-  position: absolute;
-  margin-left: -20px;
-  z-index: 2;
-}
-
-.black:hover {
-  background: #333;
-}
-
-.key.black[data-note="C#4"] { left: 60px; }
-.key.black[data-note="D#4"] { left: 120px; }
-.key.black[data-note="F#4"] { left: 240px; }
-.key.black[data-note="G#4"] { left: 300px; }
-.key.black[data-note="A#4"] { left: 360px; }
-  
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: var(--primary);
-  color: white;
-  position: relative;
-  bottom: 0;
-  width: 100%;
 }
